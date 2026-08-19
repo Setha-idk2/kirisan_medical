@@ -17,7 +17,29 @@
         <h2>All Products</h2>
       </div>
 
+      <!-- Search & Filter Controls -->
+      <div class="filter-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          class="filter-input" 
+          placeholder="Search by name, subcategory, flavour, or size..." 
+        />
+        <select id="subcategory-filter" class="filter-select">
+          <option value="all">All Subcategories</option>
+          <option value="adult">Adult Oral Care</option>
+          <option value="child">Kids Oral Care</option>
+        </select>
+        <select id="flavour-filter" class="filter-select">
+          <option value="all">All Flavours</option>
+        </select>
+      </div>
+
+      <!-- Product Grid & Empty State -->
       <div class="product-grid" id="all-products"></div>
+      <div id="no-results" class="no-results" style="display: none;">
+        <p>No products match your search criteria.</p>
+      </div>
     </section>
   </main>
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kirisan Group - Home & Products</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <!-- Navbar Component -->
+  <header class="site-header" id="navbar-component"></header>
+
+  <main class="content">
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-section">
+      <h1>Welcome to Kirisan Group</h1>
+      <p>We supply high-quality consumer goods tailored for everyday nutrition, care, and wellness.</p>
+      <a href="#products" class="btn">Explore Our Products ↓</a>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section id="products" class="products-section">
+      <div class="page-intro">
+        <h2>Our Core Product Divisions</h2>
+        <p>Swipe or drag sideways to explore our products in each line.</p>
+      </div>
+
+      <!-- DIVISION 1: PET FOOD -->
+      <section class="product-category">
+        <div class="category-header">
+          <h2>🐾 Pet Food Division</h2>
+          <p>Nutritiously balanced formulas designed for optimal pet health and digestion.</p>
+        </div>
+
+        <h3 class="subcategory-title">🐶 Dog Food Line</h3>
+        <div class="product-grid scroll-x" id="dog-products"></div>
+
+        <h3 class="subcategory-title">🐱 Cat Food Line</h3>
+        <div class="product-grid scroll-x" id="cat-products"></div>
+      </section>
+
+      <!-- DIVISION 2: TOOTHPASTE -->
+      <section class="product-category">
+        <div class="category-header">
+          <h2>🪥 Oral Care Toothpaste Division</h2>
+          <p>Advanced dental formulations engineered for enamel defense and fresh breath.</p>
+        </div>
+
+        <h3 class="subcategory-title">👨‍💼 Adult Oral Care</h3>
+        <div class="product-grid scroll-x" id="adult-toothpaste-products"></div>
+
+        <h3 class="subcategory-title">🧒 Kids Oral Care</h3>
+        <div class="product-grid scroll-x" id="child-toothpaste-products"></div>
+      </section>
+    </section>
+  </main>
+
+  <!-- Footer Component -->
+  <footer class="site-footer" id="footer-component"></footer>
+</body>
+</html>

@@ -1,4 +1,4 @@
-// Render Navbar
+// Dynamic Navbar Component
 function renderNavbar() {
   const header = document.getElementById('navbar-component');
   if (!header) return;
@@ -32,7 +32,7 @@ function renderNavbar() {
   }
 }
 
-// Render Footer
+// Dynamic Footer Component
 function renderFooter() {
   const footer = document.getElementById('footer-component');
   if (!footer) return;
@@ -48,10 +48,10 @@ function renderFooter() {
   `;
 }
 
-// Fetch and Render Products with Automated Image Paths
+// Fetch and Render Products from JSONL
 async function loadProductsFromJSONL() {
-  const dogContainer = document.getElementById('dog-products');
-  if (!dogContainer) return;
+  const firstAidContainer = document.getElementById('first-aid-products');
+  if (!firstAidContainer) return;
 
   try {
     const response = await fetch('data/products.jsonl');
@@ -64,8 +64,8 @@ async function loadProductsFromJSONL() {
       .map(line => JSON.parse(line));
 
     const containers = {
-      'pet-food-dog': document.getElementById('dog-products'),
-      'pet-food-cat': document.getElementById('cat-products'),
+      'medical-first-aid': document.getElementById('first-aid-products'),
+      'medical-monitoring': document.getElementById('monitoring-products'),
       'toothpaste-adult': document.getElementById('adult-toothpaste-products'),
       'toothpaste-child': document.getElementById('child-toothpaste-products')
     };
@@ -77,7 +77,6 @@ async function loadProductsFromJSONL() {
       const targetContainer = containers[key];
 
       if (targetContainer) {
-        // Automatically prepends the images folder path
         const imageSrc = product.image ? `assets/images/${product.image}` : 'assets/images/placeholder.png';
 
         const card = document.createElement('div');

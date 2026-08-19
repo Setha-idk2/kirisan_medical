@@ -4,17 +4,13 @@ function renderNavbar() {
   if (!header) return;
 
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  const isHomePage = currentPath === 'index.html' || currentPath === '';
-
-  const homeLink = isHomePage ? '#home' : 'index.html#home';
-  const productsLink = isHomePage ? '#products' : 'index.html#products';
 
   header.innerHTML = `
     <nav class="navbar">
-      <a href="${homeLink}" class="logo">Kirisan Group</a>
+      <a href="index.html" class="logo">Kirisan Medical</a>
       <ul class="nav-links" id="navlinks">
-        <li><a href="${homeLink}">Home</a></li>
-        <li><a href="${productsLink}">Products</a></li>
+        <li><a href="index.html" class="${currentPath === 'index.html' || currentPath === '' ? 'active' : ''}">Home</a></li>
+        <li><a href="products.html" class="${currentPath === 'products.html' ? 'active' : ''}">Products</a></li>
         <li><a href="about.html" class="${currentPath === 'about.html' ? 'active' : ''}">About</a></li>
         <li><a href="contact.html" class="${currentPath === 'contact.html' ? 'active' : ''}">Contact</a></li>
       </ul>
@@ -39,7 +35,7 @@ function renderFooter() {
 
   footer.innerHTML = `
     <div class="footer-container">
-      <p>&copy; ${new Date().getFullYear()} Kirisan Group. All rights reserved.</p>
+      <p>&copy; ${new Date().getFullYear()} Kirisan Medical. All rights reserved.</p>
       <ul class="footer-links">
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -50,8 +46,14 @@ function renderFooter() {
 
 // Fetch and Render Products from JSONL
 async function loadProductsFromJSONL() {
-  const firstAidContainer = document.getElementById('first-aid-products');
-  if (!firstAidContainer) return;
+  const containers = {
+    'toothpaste-adult': document.getElementById('adult-toothpaste-products'),
+    'toothpaste-child': document.getElementById('child-toothpaste-products')
+  };
+
+  // Only run loading logic if product grid containers exist on the page
+  const hasContainers = Object.values(containers).some(c => c !== null);
+  if (!hasContainers) return;
 
   try {
     const response = await fetch('data/products.jsonl');
@@ -62,13 +64,6 @@ async function loadProductsFromJSONL() {
       .split('\n')
       .filter(line => line.trim() !== '')
       .map(line => JSON.parse(line));
-
-    const containers = {
-      'medical-first-aid': document.getElementById('first-aid-products'),
-      'medical-monitoring': document.getElementById('monitoring-products'),
-      'toothpaste-adult': document.getElementById('adult-toothpaste-products'),
-      'toothpaste-child': document.getElementById('child-toothpaste-products')
-    };
 
     Object.values(containers).forEach(c => { if (c) c.innerHTML = ''; });
 

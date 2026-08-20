@@ -96,7 +96,7 @@ function renderFooter() {
   `;
 }
 
-// Open Lightbox for a specific product
+// Lightbox modal opener
 function openLightbox(product) {
   const modal = document.getElementById('image-modal');
   const modalImg = document.getElementById('modal-img');
@@ -113,7 +113,7 @@ function openLightbox(product) {
   modal.classList.add('active');
 }
 
-// Auto-inject Modal HTML to Body and Setup Close Handlers
+// Lightbox HTML injector
 function setupModal() {
   if (!document.getElementById('image-modal')) {
     const modalHTML = `
@@ -195,7 +195,6 @@ function createProductCard(product) {
   return card;
 }
 
-// Dynamically populate the flavour dropdown options from the dataset
 function populateFlavourOptions(products) {
   const flavourSelect = document.getElementById('flavour-filter');
   if (!flavourSelect) return;
@@ -212,7 +211,6 @@ function populateFlavourOptions(products) {
   });
 }
 
-// Main static filter function
 function filterAndRenderProducts() {
   const allProductsContainer = document.getElementById('all-products');
   const noResultsElement = document.getElementById('no-results');
@@ -253,7 +251,6 @@ function filterAndRenderProducts() {
   }
 }
 
-// Attach event listeners to filter controls
 function setupFilterListeners() {
   const searchInput = document.getElementById('search-input');
   const subcategorySelect = document.getElementById('subcategory-filter');
@@ -264,7 +261,6 @@ function setupFilterListeners() {
   if (flavourSelect) flavourSelect.addEventListener('change', filterAndRenderProducts);
 }
 
-// Fetch and Render Products from JSONL
 async function loadProductsFromJSONL() {
   const featuredContainer = document.getElementById('featured-products');
   const allProductsContainer = document.getElementById('all-products');

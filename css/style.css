@@ -245,7 +245,6 @@ body {
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
 }
 
-/* --- PRODUCT IMAGE & INFO CONTAINERS --- */
 .product-image {
   flex: 0 0 220px;
   height: 200px;
@@ -278,7 +277,6 @@ body {
   min-width: 0;
 }
 
-/* --- TEXT & TYPOGRAPHY CLAMPING --- */
 .product-card h3 {
   font-size: 1.2rem;
   margin-bottom: 0.35rem;
@@ -306,7 +304,6 @@ body {
   text-overflow: ellipsis;
 }
 
-/* --- META TAGS & BADGES --- */
 .meta-tags {
   display: flex;
   gap: 0.4rem;
@@ -331,57 +328,6 @@ body {
   background-color: #f0fdf4;
   color: #16a34a;
   text-transform: capitalize;
-}
-
-/* --- HORIZONTAL SIDE-SCROLLING CONTAINER --- */
-.product-grid.scroll-x {
-  display: flex;
-  overflow-x: auto;
-  gap: 1.25rem;
-  padding-bottom: 1rem;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  cursor: grab;
-  user-select: none;
-}
-
-.product-grid.scroll-x .product-card {
-  flex: 0 0 360px;
-  scroll-snap-align: start;
-  background-color: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 1.25rem;
-  transition: border-color 0.2s, transform 0.2s;
-}
-
-.product-grid.scroll-x .product-card:hover {
-  border-color: #2563eb;
-  transform: translateY(-2px);
-}
-
-.product-grid.scroll-x::-webkit-scrollbar {
-  height: 6px;
-}
-
-.product-grid.scroll-x::-webkit-scrollbar-track {
-  background: #f1f5f9;
-  border-radius: 10px;
-}
-
-.product-grid.scroll-x::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 10px;
-}
-
-.product-grid.scroll-x::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-.product-grid.scroll-x.dragging {
-  cursor: grabbing;
-  scroll-snap-type: none;
-  scroll-behavior: auto;
 }
 
 /* --- LIGHTBOX POPUP MODAL --- */
@@ -458,18 +404,175 @@ body {
   }
 }
 
-/* --- ABOUT & CONTACT CARDS --- */
-.about-card, 
-.contact-info-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 2rem;
-  max-width: 700px;
+/* --- ABOUT & CONTACT PAGE LAYOUTS --- */
+.about-grid,
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-/* --- FOOTER REDESIGN --- */
+.about-card, 
+.contact-info-card,
+.contact-card,
+.value-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-card:hover,
+.contact-card:hover,
+.value-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+}
+
+.about-card h2,
+.contact-info-card h2,
+.contact-card h2 {
+  font-size: 1.5rem;
+  color: #111827;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #f3f4f6;
+  padding-bottom: 0.75rem;
+}
+
+.about-card p,
+.contact-info-card p {
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+/* --- VALUES SECTION (ABOUT PAGE) --- */
+.values-section {
+  margin-top: 3rem;
+}
+
+.values-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.values-header h2 {
+  font-size: 1.75rem;
+  color: #111827;
+}
+
+.value-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.value-icon {
+  width: 52px;
+  height: 52px;
+  background-color: #eff6ff;
+  color: #2563eb;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.value-card h3 {
+  font-size: 1.2rem;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.value-card p {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* --- CONTACT DETAILS & LIST --- */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contact-item-icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  background-color: #eff6ff;
+  color: #2563eb;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.contact-item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-item-details span.label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #9ca3af;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.contact-item-details a,
+.contact-item-details address {
+  font-style: normal;
+  font-size: 1rem;
+  color: #1f2937;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-item-details a:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* --- MAP BANNER CARD (CONTACT PAGE) --- */
+.map-preview-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.map-preview-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.map-card-body {
+  padding: 1.5rem;
+}
+
+/* --- FOOTER --- */
 .site-footer {
   background-color: #444444;
   color: #e5e7eb;
@@ -642,6 +745,13 @@ body {
   .product-grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
 }
 

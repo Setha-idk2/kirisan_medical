@@ -37,11 +37,61 @@ function renderFooter() {
 
   footer.innerHTML = `
     <div class="footer-container">
-      <p>&copy; ${new Date().getFullYear()} Kirisan Medical. All rights reserved.</p>
-      <ul class="footer-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <div class="footer-grid">
+        
+        <!-- Column 1: Company Info -->
+        <div class="footer-col company-col">
+          <h3 class="footer-brand">KIRISAN MEDICAL CO., LTD</h3>
+          <p class="footer-address">
+            Rise Commercial Building, 2nd Floor Room 2B2, St. 282 Sangkat Beoung Keng Kong 1 Khan Beoung Kengkong, Phnom Penh
+          </p>
+          <p class="footer-contact-item">
+            <span class="icon">📞</span>
+            <a href="tel:+85599666417">+855 99 666 417</a>
+          </p>
+          <p class="footer-contact-item">
+            <span class="icon">✉</span>
+            <a href="mailto:kirisangroup@gmail.com">kirisangroup@gmail.com</a>
+          </p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+          <h4>QUICK LINKS</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Social Media -->
+        <div class="footer-col">
+          <h4>CONNECT WITH US</h4>
+          <ul class="footer-social-list">
+            <li>
+              <a href="https://www.facebook.com/share/199TVjo92W/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+                <span class="social-icon">f</span> Facebook
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Interactive Map Image -->
+        <div class="footer-col map-col">
+          <a href="https://maps.app.goo.gl/HJdfwn6rRKmZjb8F6" target="_blank" rel="noopener noreferrer" class="map-link">
+            <img src="assets/map/image.png" alt="Kirisan Medical Location Map" class="footer-map-img">
+            <span class="map-overlay-btn">Open in Maps ↗</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright -->
+      <div class="footer-bottom">
+        <p>© ${new Date().getFullYear()} KIRISAN MEDICAL CO., LTD. All rights reserved.</p>
+      </div>
     </div>
   `;
 }
@@ -83,17 +133,14 @@ function setupModal() {
 
   const closeModal = () => modal.classList.remove('active');
 
-  // Close via X button
   if (modalClose) modalClose.addEventListener('click', closeModal);
 
-  // Close via click on empty space (overlay background)
   modal.addEventListener('click', (e) => {
     if (e.target === modal || e.target.classList.contains('modal-container')) {
       closeModal();
     }
   });
 
-  // Close via Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('active')) {
       closeModal();
@@ -101,7 +148,6 @@ function setupModal() {
   });
 }
 
-// Helper function to create product card HTML
 function createProductCard(product) {
   const imageName = product.image ? product.image.trim() : 'placeholder.png';
   const initialSrc = encodeURI(`assets/images/${imageName}`);
@@ -115,8 +161,8 @@ function createProductCard(product) {
         alt="${product.Name}" 
         loading="lazy" 
         decoding="async" 
-        width="200" 
-        height="160"
+        width="220" 
+        height="200"
         onerror="
           if (!this.dataset.triedJpg) {
             this.dataset.triedJpg = true;
@@ -131,16 +177,17 @@ function createProductCard(product) {
         "
       >
     </div>
-    <div class="meta-tags">
-      <span class="badge size-badge">${product.size}</span>
-      <span class="badge flavour-badge">${product.flavour}</span>
+    <div class="product-info">
+      <div class="meta-tags">
+        <span class="badge size-badge">${product.size}</span>
+        <span class="badge flavour-badge">${product.flavour}</span>
+      </div>
+      <h3>${product.Name}</h3>
+      <p class="product-description"><strong>${product.description}</strong></p>
+      <p class="product-detail">${product.detail}</p>
     </div>
-    <h3>${product.Name}</h3>
-    <p class="product-description"><strong>${product.description}</strong></p>
-    <p class="product-detail">${product.detail}</p>
   `;
 
-  // Entire card triggers image pop-up
   card.addEventListener('click', () => {
     openLightbox(product);
   });

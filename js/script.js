@@ -9,7 +9,9 @@ function renderNavbar() {
 
   header.innerHTML = `
     <nav class="navbar">
-      <a href="index.html" class="logo">Kirisan Medical</a>
+      <a href="index.html" class="logo">
+        <img src="assets/icon/icon.webp" alt="Kirisan Medical Logo" class="logo-icon">
+      </a>
       <ul class="nav-links" id="navlinks">
         <li><a href="index.html" class="${currentPath === 'index.html' || currentPath === '' ? 'active' : ''}">Home</a></li>
         <li><a href="products.html" class="${currentPath === 'products.html' ? 'active' : ''}">Products</a></li>

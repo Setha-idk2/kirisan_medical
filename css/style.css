@@ -29,11 +29,12 @@ body {
 
 /* --- HEADER & NAVBAR --- */
 .site-header {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  background-color: #005670;
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0px 12px 12px -1px rgba(0, 0, 0, 0.1), 0px 12px 12px -2px rgba(0, 0, 0, 0.1);
+
 }
 
 .navbar {
@@ -42,15 +43,30 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   position: relative;
 }
 
 .logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
+  align-self: center;
+}
+
+.logo-icon {
+  width: 92px;
+  height: auto;
+  max-height: 72px;
+  object-fit: contain;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  display: block;
+}
+
+.logo:hover .logo-icon {
+  transform: scale(1.05);
+  filter: brightness(1.08);
 }
 
 .nav-links {
@@ -61,20 +77,22 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: #4b5563;
-  font-weight: 500;
+  color: #d9f3f5;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   transition: color 0.2s;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: #2563eb;
+  color: #67e8f9;
 }
 
 .mobile-toggle {
   display: none;
   background: none;
   border: none;
+  color: #d9f3f5;
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -100,7 +118,6 @@ body {
   text-align: center;
   padding: 4rem 1rem 5rem 1rem;
   background: #fcfeff;
-  border: 1px solid #e5e7eb;
   border-radius: 12px;
   margin-bottom: 3rem;
 }
@@ -236,13 +253,19 @@ body {
   align-items: flex-start;
   gap: 1.5rem;
   width: 100%;
+  
+  /* Tailwind shadow-md */
+  box-shadow: 2px 4px 6px -1px rgba(0, 0, 0, 0.1), 2px 2px 4px -2px rgba(0, 0, 0, 0.1);
+
   transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
 .product-card:hover {
   transform: translateY(-3px);
   border-color: #2563eb;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+  
+  /* Tailwind shadow-lg on hover */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 
 .product-image {
@@ -767,9 +790,9 @@ body {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #082f3b;
     padding: 1rem 1.5rem;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid #164e63;
   }
 
   .nav-links.active {
@@ -796,20 +819,4 @@ body {
     flex: 0 0 120px;
     height: 120px;
   }
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #2563eb;
-  text-decoration: none;
-}
-
-.logo-icon {
-  width: 72px;
-  height: 72px;
-  object-fit: contain;
 }

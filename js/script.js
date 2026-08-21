@@ -10,13 +10,14 @@ function renderNavbar() {
   header.innerHTML = `
     <nav class="navbar">
       <a href="index.html" class="logo">
-        <img src="assets/icon/icon.webp" alt="Kirisan Medical Logo" class="logo-icon">
+        <span title="Kirisan Medical logo. click to return to home page">
+        <img src="assets/icon/icon.webp" alt="Kirisan Medical Logo" class="logo-icon"></span>
       </a>
       <ul class="nav-links" id="navlinks">
-        <li><a href="index.html" class="${currentPath === 'index.html' || currentPath === '' ? 'active' : ''}">Home</a></li>
-        <li><a href="products.html" class="${currentPath === 'products.html' ? 'active' : ''}">Products</a></li>
-        <li><a href="about.html" class="${currentPath === 'about.html' ? 'active' : ''}">About</a></li>
-        <li><a href="contact.html" class="${currentPath === 'contact.html' ? 'active' : ''}">Contact</a></li>
+        <li><a href="index.html" class="${currentPath === 'index.html' || currentPath === '' ? 'active' : ''}"><span title="Return to home page">Home</span></a></li>
+        <li><a href="products.html" class="${currentPath === 'products.html' ? 'active' : ''}"><span title="Search, filter and view all products">Products</span></a></li>
+        <li><a href="about.html" class="${currentPath === 'about.html' ? 'active' : ''}"><span title="About Kirisan Group">About</span></a></li>
+        <li><a href="contact.html" class="${currentPath === 'contact.html' ? 'active' : ''}"><span title="Get in touch with us">Contact</span></a></li>
       </ul>
       <button class="mobile-toggle" id="menuToggle" aria-label="Toggle Navigation">☰</button>
     </nav>
@@ -44,14 +45,15 @@ function renderFooter() {
         <!-- Column 1: Company Info -->
         <div class="footer-col company-col">
           <h3 class="footer-brand">KIRISAN MEDICAL CO., LTD</h3>
-          <p class="footer-address">
+          <p class="footer-address" title="Our physical address">
+            <span class="icon">📍</span>
             Rise Commercial Building, 2nd Floor Room 2B2, St. 282 Sangkat Beoung Keng Kong 1 Khan Beoung Kengkong, Phnom Penh
           </p>
-          <p class="footer-contact-item">
+          <p class="footer-contact-item" title="Phone number">
             <span class="icon">📞</span>
             <a href="tel:+85599666417">+855 99 666 417</a>
           </p>
-          <p class="footer-contact-item">
+          <p class="footer-contact-item" title="Email address">
             <span class="icon">✉</span>
             <a href="mailto:kirisangroup@gmail.com">kirisangroup@gmail.com</a>
           </p>
@@ -61,10 +63,10 @@ function renderFooter() {
         <div class="footer-col">
           <h4>QUICK LINKS</h4>
           <ul class="footer-links-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html" title="Return to home page">Home</a></li>
+            <li><a href="products.html" title="View all products">Products</a></li>
+            <li><a href="about.html" title="Learn more about us">About Us</a></li>
+            <li><a href="contact.html" title="Get in touch with us">Contact</a></li>
           </ul>
         </div>
 
@@ -73,7 +75,7 @@ function renderFooter() {
           <h4>CONNECT WITH US</h4>
           <ul class="footer-social-list">
             <li>
-              <a href="https://www.facebook.com/share/199TVjo92W/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/share/199TVjo92W/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" title="Visit Facebook page">
                 <span class="social-icon">f</span> Facebook
               </a>
             </li>
@@ -82,7 +84,7 @@ function renderFooter() {
 
         <!-- Column 4: Interactive Map Image -->
         <div class="footer-col map-col">
-          <a href="https://maps.app.goo.gl/HJdfwn6rRKmZjb8F6" target="_blank" rel="noopener noreferrer" class="map-link">
+          <a href="https://maps.app.goo.gl/HJdfwn6rRKmZjb8F6" target="_blank" rel="noopener noreferrer" class="map-link" title="Click to view Kirisan Group office location on Google Maps">
             <img src="assets/map/image.png" alt="Kirisan Medical Location Map" class="footer-map-img">
             <span class="map-overlay-btn">Open in Maps ↗</span>
           </a>
